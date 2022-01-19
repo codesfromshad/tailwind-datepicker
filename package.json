@@ -1,4 +1,5 @@
 {
+  "homepage": "http://codesfromshad.github.io/tailwind-datepicker"
   "name": "tailwind-datepicker",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +15,7 @@
     "@types/node": "^16.11.17",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "calendar-base": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -24,7 +26,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +51,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.1",
     "craco-alias": "^3.0.1",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.15"
   }
