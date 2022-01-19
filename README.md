@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Tailwind Datepicker React Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This projesct was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Demo
+
+[Launch demo](https://codesfromshad.github.io/tailwind-datepicker/)
 
 ## Available Scripts
 

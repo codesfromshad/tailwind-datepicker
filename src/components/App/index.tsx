@@ -1,12 +1,49 @@
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@heroicons/react/outline';
-import { Calendar } from 'calendar-base';
-import { flushSync } from 'react-dom';
 
-const cal = new Calendar();
-
-
+function classNames(...classes: (boolean | null | undefined | string)[]) {
+  return classes.filter(Boolean).join(' ')
+}
 
 function App() {
+
+  const nameOfDays = [
+    {
+      id: 0,
+      dayName: "Monday",
+      isWeekend: false
+    },
+    {
+      id: 1,
+      dayName: "Tuesday",
+      isWeekend: false
+    },
+    {
+      id: 2,
+      dayName: "Wednesday",
+      isWeekend: false
+    },
+    {
+      id: 3,
+      dayName: "Thursday",
+      isWeekend: false
+    },
+    {
+      id: 4,
+      dayName: "Friday",
+      isWeekend: true
+    },
+    {
+      id: 5,
+      dayName: "Saturday",
+      isWeekend: true
+    },
+    {
+      id: 6,
+      dayName: "Sunday",
+      isWeekend: false
+    }
+  ];
+
   const daysArr = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
   const offset = 5;
   const arr = [];
@@ -41,19 +78,19 @@ function App() {
       <div className="select-none flex bg-white shadow-lg rounded-xl w-full sm:w-auto justify-center">
         <div className="flex flex-col w-[360px] justify-evenly px-5 pt-5 pb-6 border-b border-gray-100">
           <div className="flex items-center justify-between">
-            <button className="text-lg font-semibold rounded-md cursor-pointer hover:bg-gray-50 px-3 py-2">
+            <button className="text-lg text-gray-700 font-semibold rounded-md cursor-pointer hover:bg-gray-50 px-3 py-2">
               September 2021
             </button>
             <div className="flex justify-center space-x-2">
               <button
                 className="inline-flex items-center p-1.5 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 g-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                <ChevronLeftIcon className="w-6 h-6 text-gray-900 stroke-current"/>
+                <ChevronLeftIcon className="w-6 h-6 stroke-current"/>
               </button>
               <button
                 className="inline-flex items-center p-1.5 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 g-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                <ChevronRightIcon className="w-6 h-6 text-gray-900 stroke-current"/>
+                <ChevronRightIcon className="w-6 h-6 stroke-current"/>
               </button>
             </div>
           </div>
@@ -90,43 +127,26 @@ function App() {
                 16
               </span>
             </div>
-            <div className="grid grid-rows-7 w-full">
-              <div className="grid grid-cols-7 text-sm text-center text-gray-900">
-              <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md"
-                >
-                  Mo
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md"
-                >
-                  Tu
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md"
-                >
-                  We
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md"
-                >
-                  Th
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md"
-                >
-                  Fr
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md text-red-600"
-                >
-                  Sa
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 font-semibold rounded-md"
-                >
-                  Su
-                </span>
+
+            <div className="w-full">
+
+              {/* Calendar Week Row */}
+
+              <div className="grid grid-cols-7 text-sm text-center text-gray-700">
+                {nameOfDays.map((element) => {
+                  return (
+                    <div
+                      className={classNames(element.isWeekend 
+                        ? "text-red-600"
+                        : null,
+                        "flex items-center justify-center w-full h-10 font-semibold rounded-md"
+                      )}
+                    >
+                      {element.dayName.substring(0,2)}
+                    </div>
+                  );
+                })}
+
               </div>
               <div className="grid grid-cols-7 gap-y-1.5 text-sm text-center text-gray-700">
                 <div className="flex items-center justify-center w-full">
