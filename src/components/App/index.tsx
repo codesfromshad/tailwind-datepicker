@@ -100,7 +100,7 @@ function App() {
             </div>
           </div>
           <div className="flex justify-around pt-2">
-            <div className="hidden grid grid-rows-6 pt-10 pr-3 gap-y-1.5 text-sm text-gray-300">
+            <div className="hidden grid grid-rows-6 pt-10 pr-4 gap-y-1.5 text-sm text-gray-300">
               <span
                 className="flex items-center justify-center w-full h-auto rounded-md"
               >
@@ -142,7 +142,7 @@ function App() {
                   return (
                     <div
                       className={classNames(nameOfDay.isWeekend 
-                        ? "text-red-600"
+                        ? "text-red-700"
                         : null,
                         "flex items-center justify-center w-full h-10 font-semibold rounded-md"
                       )}
@@ -181,7 +181,7 @@ function App() {
                         className={classNames(
                           day.isInteractable
                             ? "cursor-pointer hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm"
-                            : "border-transparent cursor-default text-gray-300",
+                            : "border-transparent cursor-not-allowed text-gray-300",
                           day.isFromPreviousMonth
                             ? "text-gray-300"
                             : null,
@@ -189,28 +189,28 @@ function App() {
                             ? "text-gray-300"
                             : null,
                           (day.isWeekend || day.isHoliday) && !(day.isFromPreviousMonth || day.isFromNextMonth) && !day.isInRange
-                            ? "text-red-600"
+                            ? "text-red-700"
                             : null,
                           (day.isWeekend || day.isHoliday) && (day.isFromPreviousMonth || day.isFromNextMonth) && !day.isInRange
                             ? "text-red-300"
                             : null,
                           day.isToday
                             ? (day.isWeekend || day.isHoliday)
-                              ? "rounded-md font-semibold border border-red-300 hover:border-red-400 hover:bg-red-50 shadow-sm shadow-red-100"
-                              : "rounded-md text-blue-500 font-semibold border border-blue-300 hover:border-blue-400 hover:bg-blue-50 shadow-sm shadow-blue-100"
+                              ? "rounded-md font-semibold border border-red-300 hover:border-red-500 hover:bg-red-50 shadow-sm shadow-red-100"
+                              : "rounded-md text-blue-700 font-semibold border border-blue-300 hover:border-blue-500 hover:bg-blue-50 shadow-sm shadow-blue-100"
                             : "border-transparent",
                           day.isSelected
-                            ? "font-semibold text-white bg-blue-500 hover:border-blue-700 hover:bg-blue-600 shadow-sm shadow-blue-100"
+                            ? "font-semibold text-white bg-blue-600 hover:border-blue-700 hover:bg-blue-700 shadow-sm shadow-blue-100"
                             : null,
                           day.isInRange && !(day.isRangeStart || day.isRangeEnd)
-                            ? "font-semibold text-blue-500 bg-transparent hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100"
+                            ? "font-semibold text-blue-700 bg-transparent hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100"
                             : day.isRangeStart
-                              ? "rounded-r-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md shadow-sm shadow-blue-100 transition-all duration-75 z-10"
+                              ? "rounded-r-none font-semibold text-white bg-blue-600 border-blue-500 hover:border-blue-700 hover:bg-blue-700 hover:rounded-md shadow-sm shadow-blue-100 transition-all duration-75"
                               : day.isRangeEnd
-                                ? "rounded-l-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md shadow-sm shadow-blue-100 transition-all duration-75 z-10"
+                                ? "rounded-l-none font-semibold text-white bg-blue-600 border-blue-500 hover:border-blue-700 hover:bg-blue-700 hover:rounded-md shadow-sm shadow-blue-100 transition-all duration-75"
                                 : null,
                     
-                          "flex items-center justify-center w-10 h-10 rounded-md z-20 border"
+                          "flex items-center justify-center w-10 h-10 rounded-md border"
                     
                         )}
                       >
@@ -227,7 +227,7 @@ function App() {
             <div className="flex">
               <button
                 type="button"
-                className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Today
               </button>
@@ -241,7 +241,7 @@ function App() {
               </button>
               <button
                 type="button"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-700 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Set date
               </button>
