@@ -223,7 +223,7 @@ function App() {
             
             </div>
           </div>
-          <div className="flex justify-between pt-2">
+          <div className="flex justify-between pt-5">
             <div className="flex">
               <button
                 type="button"
