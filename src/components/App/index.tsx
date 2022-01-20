@@ -63,9 +63,9 @@ function App() {
     isWeekend: false,
     isHoliday: false,
     isStartingDayOfWeek: false,
-    isSelectStart: false,
-    isSelected: false,
-    isSelectEnd: false,
+    isRangeStart: false,
+    isInRange: false,
+    isRangeEnd: false,
     isFromPreviousMonth: false,
     isFromNextMonth: false,
     date: {
@@ -161,15 +161,21 @@ function App() {
                 {calendarDays.map((day) => {
                   return (
                     <div className={classNames(
-                      day.isSelected && !(day.isSelectStart || day.isSelectEnd) && day.isStartingDayOfWeek
-                        ? "bg-blue-100 w-16 pr-[1.167rem]"
-                        : day.isSelected && !(day.isSelectStart || day.isSelectEnd) && day.isEndingDayOfWeek
+                      day.isInRange && !(day.isRangeStart || day.isRangeEnd) && day.isStartingDayOfWeek
+                        ? "bg-blue-100"
+                        : day.isInRange && !(day.isRangeStart || day.isRangeEnd) && day.isEndingDayOfWeek
                           ? "bg-blue-100"
-                          : day.isSelected && !(day.isSelectStart || day.isSelectEnd)
-                            ? "w-16 -ml-[.667em] bg-blue-100 rounded-r-none"
+                          : day.isInRange && !(day.isRangeStart || day.isRangeEnd)
+                            ? "bg-blue-100"
                             : null,
-                        
-                        "flex items-center justify-center w-full"
+                      day.isRangeStart
+                        ? "bg-gradient-to-r from-transparent via-transparent to-blue-100"
+                        : null,
+                      day.isRangeEnd
+                        ? "bg-gradient-to-l from-transparent via-transparent to-blue-100"
+                        : null,
+                    
+                      "flex items-center justify-center w-full"
                     )}>
                       <button
                         className={classNames(
@@ -182,27 +188,30 @@ function App() {
                           day.isFromNextMonth
                             ? "text-gray-300"
                             : null,
-                          (day.isWeekend || day.isHoliday) && !(day.isFromPreviousMonth || day.isFromNextMonth) && !day.isSelected
+                          (day.isWeekend || day.isHoliday) && !(day.isFromPreviousMonth || day.isFromNextMonth) && !day.isInRange
                             ? "text-red-600"
                             : null,
-                          (day.isWeekend || day.isHoliday) && (day.isFromPreviousMonth || day.isFromNextMonth) && !day.isSelected
+                          (day.isWeekend || day.isHoliday) && (day.isFromPreviousMonth || day.isFromNextMonth) && !day.isInRange
                             ? "text-red-300"
                             : null,
                           day.isToday
-                            ? (day.isWeekend || day.isHoliday) 
+                            ? (day.isWeekend || day.isHoliday)
                               ? "rounded-md font-semibold border border-red-300 hover:border-red-400 hover:bg-red-50 shadow-sm shadow-red-100"
                               : "rounded-md text-blue-500 font-semibold border border-blue-300 hover:border-blue-400 hover:bg-blue-50 shadow-sm shadow-blue-100"
                             : "border-transparent",
-                          day.isSelected && !(day.isSelectStart || day.isSelectEnd)
-                            ? "font-semibold text-blue-500 bg-transparent hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100 rounded-md"
-                            : day.isSelectStart
-                              ? "rounded-l-md rounded-r-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
-                              : day.isSelectEnd
-                                ? "rounded-r-md rounded-l-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
+                          day.isSelected
+                            ? "font-semibold text-white bg-blue-500 hover:border-blue-700 hover:bg-blue-600 shadow-sm shadow-blue-100"
+                            : null,
+                          day.isInRange && !(day.isRangeStart || day.isRangeEnd)
+                            ? "font-semibold text-blue-500 bg-transparent hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100"
+                            : day.isRangeStart
+                              ? "rounded-r-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md shadow-sm shadow-blue-100 transition-all duration-75 z-10"
+                              : day.isRangeEnd
+                                ? "rounded-l-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md shadow-sm shadow-blue-100 transition-all duration-75 z-10"
                                 : null,
-                            
+                    
                           "flex items-center justify-center w-10 h-10 rounded-md z-20 border"
-                          
+                    
                         )}
                       >
                         {day.date.day}
