@@ -193,7 +193,7 @@ function App() {
                               ? "rounded-md font-semibold border border-red-300 hover:border-red-400 hover:bg-red-50 shadow-sm shadow-red-100"
                               : "rounded-md text-blue-500 font-semibold border border-blue-300 hover:border-blue-400 hover:bg-blue-50 shadow-sm shadow-blue-100"
                             : "border-transparent",
-                          !(day.isSelectStart || day.isSelectEnd)
+                          day.isSelected && !(day.isSelectStart || day.isSelectEnd)
                             ? "font-semibold text-blue-500 bg-transparent hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100 rounded-md"
                             : day.isSelectStart
                               ? "rounded-l-md rounded-r-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
