@@ -161,12 +161,14 @@ function App() {
                 {calendarDays.map((day) => {
                   return (
                     <div className={classNames(
-                      day.isSelected && !(day.isSelectStart || day.isSelectEnd)
-                        ? day.isEndingDayOfWeek
-                          ? "w-16 -ml-[.667em] z-0 bg-blue-100 rounded-r-none"
-                          : "bg-blue-100 w-16 -ml-[.667em]"
-                          
+                      day.isSelected && !(day.isSelectStart || day.isSelectEnd) && day.isStartingDayOfWeek
+                        ? "bg-blue-100 w-16 pr-[1.167rem]"
+                        : day.isSelected && !(day.isSelectStart || day.isSelectEnd) && day.isEndingDayOfWeek
+                          ? "bg-blue-100"
+                          : day.isSelected && !(day.isSelectStart || day.isSelectEnd)
+                            ? "w-16 -ml-[.667em] bg-blue-100 rounded-r-none"
                             : null,
+                        
                         "flex items-center justify-center w-full"
                     )}>
                       <button
@@ -191,15 +193,15 @@ function App() {
                               ? "rounded-md font-semibold border border-red-300 hover:border-red-400 hover:bg-red-50 shadow-sm shadow-red-100"
                               : "rounded-md text-blue-500 font-semibold border border-blue-300 hover:border-blue-400 hover:bg-blue-50 shadow-sm shadow-blue-100"
                             : "border-transparent",
-                          day.isSelected && !(day.isSelectStart || day.isSelectEnd)
-                            ? "font-semibold text-blue-500 bg-transparent border-blue-500 hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100 rounded-md"
+                          !(day.isSelectStart || day.isSelectEnd)
+                            ? "font-semibold text-blue-500 bg-transparent hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100 rounded-md"
                             : day.isSelectStart
                               ? "rounded-l-md rounded-r-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
                               : day.isSelectEnd
                                 ? "rounded-r-md rounded-l-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
                                 : null,
                             
-                          "flex items-center justify-center w-10 h-10 border z-20"
+                          "flex items-center justify-center w-10 h-10 rounded-md z-20 border"
                           
                         )}
                       >
@@ -208,55 +210,8 @@ function App() {
                     </div>
                   );
                 })}
-
-                <div className="flex items-center justify-center w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm"
-                  >
-                    1
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer font-semibold "
-                  >
-                    11
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full bg-blue-50">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-l-md cursor-pointer "
-                  >
-                    22
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full bg-blue-50">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer font-semibold text-blue-500 border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    23
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full ">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer font-semibold text-blue-500 border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    24
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    9
-                  </button>
-                </div>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  1
-                </span>
               </div>
+            
             </div>
           </div>
           <div className="flex justify-between pt-2">
