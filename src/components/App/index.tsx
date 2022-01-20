@@ -1,10 +1,15 @@
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@heroicons/react/outline';
+import Calendar from './calendar.json';
 
 function classNames(...classes: (boolean | null | undefined | string)[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes
+    .filter(Boolean)
+    .join(' ');
 }
 
 function App() {
+
+  const calendarDays = Calendar;
 
   const nameOfDays = [
     {
@@ -30,7 +35,7 @@ function App() {
     {
       id: 4,
       dayName: "Friday",
-      isWeekend: true
+      isWeekend: false
     },
     {
       id: 5,
@@ -40,7 +45,7 @@ function App() {
     {
       id: 6,
       dayName: "Sunday",
-      isWeekend: false
+      isWeekend: true
     }
   ];
 
@@ -95,7 +100,7 @@ function App() {
             </div>
           </div>
           <div className="flex justify-around pt-2">
-            <div className="grid grid-rows-6 pt-10 pr-3 gap-y-1.5 text-sm text-gray-300">
+            <div className="hidden grid grid-rows-6 pt-10 pr-3 gap-y-1.5 text-sm text-gray-300">
               <span
                 className="flex items-center justify-center w-full h-auto rounded-md"
               >
@@ -130,175 +135,97 @@ function App() {
 
             <div className="w-full">
 
-              {/* Calendar Week Row */}
+              {/* Calendar Week Elements */}
 
               <div className="grid grid-cols-7 text-sm text-center text-gray-700">
-                {nameOfDays.map((element) => {
+                {nameOfDays.map((nameOfDay) => {
                   return (
                     <div
-                      className={classNames(element.isWeekend 
+                      className={classNames(nameOfDay.isWeekend 
                         ? "text-red-600"
                         : null,
                         "flex items-center justify-center w-full h-10 font-semibold rounded-md"
                       )}
                     >
-                      {element.dayName.substring(0,2)}
+                      {nameOfDay.dayName.substring(0,2)}
                     </div>
                   );
                 })}
 
               </div>
-              <div className="grid grid-cols-7 gap-y-1.5 text-sm text-center text-gray-700">
+
+              <div className="grid grid-cols-7 gap-y-1.5 text-sm text-gray-700">
+
+                {/* Calendar Days Elements */}
+
+                {calendarDays.map((day) => {
+                  return (
+                    <div className={classNames(
+                      day.isSelected && !(day.isSelectStart || day.isSelectEnd)
+                        ? day.isEndingDayOfWeek
+                          ? "w-16 -ml-[.667em] z-0 bg-blue-100 rounded-r-none"
+                          : "bg-blue-100 w-16 -ml-[.667em]"
+                          
+                            : null,
+                        "flex items-center justify-center w-full"
+                    )}>
+                      <button
+                        className={classNames(
+                          day.isInteractable
+                            ? "cursor-pointer hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm"
+                            : "border-transparent cursor-default text-gray-300",
+                          day.isFromPreviousMonth
+                            ? "text-gray-300"
+                            : null,
+                          day.isFromNextMonth
+                            ? "text-gray-300"
+                            : null,
+                          (day.isWeekend || day.isHoliday) && !(day.isFromPreviousMonth || day.isFromNextMonth) && !day.isSelected
+                            ? "text-red-600"
+                            : null,
+                          (day.isWeekend || day.isHoliday) && (day.isFromPreviousMonth || day.isFromNextMonth) && !day.isSelected
+                            ? "text-red-300"
+                            : null,
+                          day.isToday
+                            ? (day.isWeekend || day.isHoliday) 
+                              ? "rounded-md font-semibold border border-red-300 hover:border-red-400 hover:bg-red-50 shadow-sm shadow-red-100"
+                              : "rounded-md text-blue-500 font-semibold border border-blue-300 hover:border-blue-400 hover:bg-blue-50 shadow-sm shadow-blue-100"
+                            : "border-transparent",
+                          day.isSelected && !(day.isSelectStart || day.isSelectEnd)
+                            ? "font-semibold text-blue-500 bg-transparent border-blue-500 hover:border-blue-500 hover:bg-blue-200 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100 rounded-md"
+                            : day.isSelectStart
+                              ? "rounded-l-md rounded-r-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
+                              : day.isSelectEnd
+                                ? "rounded-r-md rounded-l-none font-semibold text-white bg-blue-500 border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:rounded-md hover:shadow-sm hover:shadow-blue-100 transition-all duration-75 z-10"
+                                : null,
+                            
+                          "flex items-center justify-center w-10 h-10 border z-20"
+                          
+                        )}
+                      >
+                        {day.date.day}
+                      </button>
+                    </div>
+                  );
+                })}
+
                 <div className="flex items-center justify-center w-full">
                   <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
+                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm"
                   >
                     1
                   </button>
                 </div>
                 <div className="flex items-center justify-around w-full">
                   <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    2
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    3
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    4
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    5
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    6
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    7
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    8
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    9
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    10
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer font-semibold text-blue-500 border border-blue-300 hover:border-blue-400 hover:bg-gray-50"
+                    className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer font-semibold "
                   >
                     11
                   </button>
                 </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    12
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    13
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    14
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    15
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    16
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    17
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    18
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    19
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    20
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    21
-                  </button>
-                </div>
                 <div className="flex items-center justify-around w-full bg-blue-50">
                   <button
-                    className="flex items-center justify-center w-10 h-10 rounded-l-md cursor-pointer font-semibold text-white bg-blue-500 border border-blue-500 hover:border-blue-700 hover:bg-blue-600 hover:text-white hover:rounded-md"
+                    className="flex items-center justify-center w-10 h-10 rounded-l-md cursor-pointer "
                   >
                     22
                   </button>
@@ -310,67 +237,11 @@ function App() {
                     23
                   </button>
                 </div>
-                <div className="flex items-center justify-around w-full bg-blue-100">
+                <div className="flex items-center justify-around w-full ">
                   <button
                     className="flex items-center justify-center w-10 h-10 rounded-md cursor-pointer font-semibold text-blue-500 border border-transparent hover:border-gray-300 hover:bg-gray-50"
                   >
                     24
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    25
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    26
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    27
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    28
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    29
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    30
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    31
-                  </button>
-                </div>
-                <div className="flex items-center justify-around w-full">
-                  <button
-                    className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 cursor-pointer border border-transparent hover:border-gray-300 hover:bg-gray-50"
-                  >
-                    8
                   </button>
                 </div>
                 <div className="flex items-center justify-around w-full">
@@ -384,36 +255,6 @@ function App() {
                   className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
                 >
                   1
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  2
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  3
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  4
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  5
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  6
-                </span>
-                <span
-                  className="flex items-center justify-center w-full h-10 text-gray-300 rounded-md"
-                >
-                  7
                 </span>
               </div>
             </div>
