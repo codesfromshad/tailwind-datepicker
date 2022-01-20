@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tailwind-datepicker/static/css/main.44e7840e.css",
-    "main.js": "/tailwind-datepicker/static/js/main.db327edc.js",
+    "main.css": "/tailwind-datepicker/static/css/main.b7456c45.css",
+    "main.js": "/tailwind-datepicker/static/js/main.b22f2292.js",
     "static/js/787.6c988949.chunk.js": "/tailwind-datepicker/static/js/787.6c988949.chunk.js",
     "index.html": "/tailwind-datepicker/index.html",
-    "main.44e7840e.css.map": "/tailwind-datepicker/static/css/main.44e7840e.css.map",
-    "main.db327edc.js.map": "/tailwind-datepicker/static/js/main.db327edc.js.map",
+    "main.b7456c45.css.map": "/tailwind-datepicker/static/css/main.b7456c45.css.map",
+    "main.b22f2292.js.map": "/tailwind-datepicker/static/js/main.b22f2292.js.map",
     "787.6c988949.chunk.js.map": "/tailwind-datepicker/static/js/787.6c988949.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.44e7840e.css",
-    "static/js/main.db327edc.js"
+    "static/css/main.b7456c45.css",
+    "static/js/main.b22f2292.js"
   ]
 }
