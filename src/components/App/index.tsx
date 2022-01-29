@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@heroicons/react/outline';
 import Calendar from './calendar.json';
 
@@ -7,15 +9,144 @@ function classNames(...classes: (boolean | null | undefined | string)[]) {
     .join(' ');
 }
 
+/* Helper Functions */
+
+/**
+ * Days in month
+ */
+
+function isToday() {
+  return;
+}
+
+const month = [
+  {
+    id: 0,
+    monthName: "January"
+  },
+  {
+    id: 1,
+    monthName: "February"
+  },
+  {
+    id: 2,
+    monthName: "March"
+  },
+  {
+    id: 3,
+    monthName: "April"
+  },
+  {
+    id: 4,
+    monthName: "May"
+  },
+  {
+    id: 5,
+    monthName: "June"
+  },
+  {
+    id: 6,
+    monthName: "July"
+  },
+  {
+    id: 7,
+    monthName: "August"
+  },
+  {
+    id: 8,
+    monthName: "September"
+  },
+  {
+    id: 9,
+    monthName: "October"
+  },
+  {
+    id: 10,
+    monthName: "November"
+  },
+  {
+    id: 11,
+    monthName: "December"
+  }
+  
+];
+
+function genPrevMonth ({ month, year }:{ month: number; year: number }) {
+  const days = daysInMonth(month, year);
+    for (let i=0; i<=days; i++) {
+      
+    }
+}
+
+/**
+ * Days in month
+ */
+ function daysInMonth(month: number, year: number) {
+  switch (month) {
+    case 0:
+    case 2:
+    case 4:
+    case 6:
+    case 7:
+    case 9:
+    case 11:
+      return 31;
+    case 1:
+      return isLeapYear(year) ? 29 : 28;
+    default:
+      return 30;
+  }
+}
+
+/**
+ * Is Leap Year
+ *
+ * @param year
+ * @returns a boolean which tells you whether the year you passed in this function is a leap year or not
+ */
+ function isLeapYear(year: number): boolean {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
 function App() {
+
+  const [state, setState] = useState(Calendar);
 
   const calendarDays = Calendar;
 
   const weekNumber = new Set();
+
+  const buildMonthObj = ({ month, year }: { month: number; year: number }) => {
+    const days = daysInMonth(month, year);
+    for (let i=0; i<=days; i++) {
+      state.push({
+        isSelected: false,
+        isToday: false,
+        isWeekend: false,
+        isHoliday: false,
+        isStartingDayOfWeek: false,
+        isEndingDayOfWeek: false,
+        isRangeStart: false,
+        isInRange: false,
+        isRangeEnd: false,
+        isInteractable: true,
+        isFromPreviousMonth: true,
+        isFromNextMonth: false,
+        dayData: "",
+        date: {
+           weekNumber: 35,
+           day: 30,
+           nameOfDay: 0,
+           month: 7,
+           year: 2021
+        }
+     })
+    }
+  }
   
-  const filteredCalendarWeekNumbers = calendarDays.filter((obj) => {
-    const isPresentInSet = weekNumber.has(obj.date.weekNumber);
-    weekNumber.add(obj.date.weekNumber);
+  const removedDuplicateCalendarWeekNumbers = calendarDays.filter((dayObj) => {
+    const isPresentInSet = weekNumber.has(dayObj.date.weekNumber);
+    weekNumber.add(dayObj.date.weekNumber);
     return !isPresentInSet;
   });
 
@@ -66,28 +197,9 @@ function App() {
     arr.push(daysArr[pointer]);
   }
   
-  const state = {
-    isToday: false,
-    isWeekend: false,
-    isHoliday: false,
-    isStartingDayOfWeek: false,
-    isRangeStart: false,
-    isInRange: false,
-    isRangeEnd: false,
-    isFromPreviousMonth: false,
-    isFromNextMonth: false,
-    date: {
-      weekNumber: 1,
-      day: 1, 
-      nameOfDay: 0, // add offset
-      month: 0,
-      year: 2021
-    }
-  }
-
 
   return (
-    <div className="dark">
+    <div className="">
       <div className="flex items-center justify-center w-full min-h-screen bg-gray-50 dark:bg-slate-900">
         <div className="select-none flex bg-white dark:bg-gray-800 shadow-lg rounded-xl w-full sm:w-auto justify-center">
           <div className="flex flex-col w-[360px] justify-evenly px-5 pt-5 pb-6 border-b rounded-xl border-gray-100 dark:border-slate-800">
@@ -98,6 +210,7 @@ function App() {
               <div className="flex justify-center space-x-2">
                 <button
                   className="inline-flex items-center p-1.5 border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-slate-200 g-white hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600"
+                  
                 >
                   <ChevronLeftIcon className="w-6 h-6 stroke-current"/>
                 </button>
@@ -110,7 +223,7 @@ function App() {
             </div>
             <div className="flex justify-around pt-2">
               <div className="grid grid-rows-6 pt-10 pr-4 gap-y-1.5 text-sm text-gray-300 dark:text-slate-600">
-                {filteredCalendarWeekNumbers.map((day) => {
+                {removedDuplicateCalendarWeekNumbers.map((day) => {
                   return (
                     <div
                       className="flex items-center justify-center w-full h-auto"
@@ -147,17 +260,17 @@ function App() {
                     return (
                       <div className={classNames(
                         day.isInRange && !(day.isRangeStart || day.isRangeEnd) && day.isStartingDayOfWeek
-                          ? "bg-blue-100 dark:bg-slate-900"
+                          ? "bg-brand-feather dark:bg-slate-900"
                           : day.isInRange && !(day.isRangeStart || day.isRangeEnd) && day.isEndingDayOfWeek
-                            ? "bg-blue-100 dark:bg-slate-900"
+                            ? "bg-brand-feather dark:bg-slate-900"
                             : day.isInRange && !(day.isRangeStart || day.isRangeEnd)
-                              ? "bg-blue-100 dark:bg-slate-900"
+                              ? "bg-brand-feather dark:bg-slate-900"
                               : null,
                         day.isRangeStart
-                          ? "bg-gradient-to-r from-transparent via-transparent to-blue-100 dark:bg-gradient-to-r dark:from-transparent dark:via-transparent dark:to-slate-900"
+                          ? "bg-gradient-to-r from-transparent via-transparent to-brand-feather dark:bg-gradient-to-r dark:from-transparent dark:via-transparent dark:to-slate-900"
                           : null,
                         day.isRangeEnd
-                          ? "bg-gradient-to-l from-transparent via-transparent to-blue-100 dark:bg-gradient-to-l dark:from-transparent dark:via-transparent dark:to-slate-900"
+                          ? "bg-gradient-to-l from-transparent via-transparent to-brand-feather dark:bg-gradient-to-l dark:from-transparent dark:via-transparent dark:to-slate-900"
                           : null,
       
                         "flex items-center justify-center w-full"
@@ -181,18 +294,18 @@ function App() {
                               : null,
                             day.isToday
                               ? (day.isWeekend || day.isHoliday)
-                                ? "rounded-md font-semibold border border-red-400 dark:border-red-900 hover:border-red-500 dark:hover:border-red-800 hover:bg-red-50 dark:hover:bg-red-900 shadow-sm shadow-red-100 dark:shadow-red-900"
-                                : "rounded-md text-blue-700 dark:text-blue-400 font-semibold border border-blue-400 dark:border-blue-700 hover:border-blue-500 dark:hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900 shadow-sm shadow-blue-100 dark:shadow-blue-700"
+                                ? "rounded-md font-semibold border border-red-400 dark:border-red-900 hover:border-red-400 dark:hover:border-red-800 hover:bg-red-50 dark:hover:bg-red-900 shadow-sm shadow-red-50 dark:shadow-red-900"
+                                : "rounded-md text-brand-dark dark:text-brand-lighter font-semibold border border-brand-light dark:border-brand-light hover:border-brand-light dark:hover:border-brand-light hover:bg-brand-air dark:hover:bg-brand-darkest shadow-sm shadow-brand-feather dark:shadow-brand-darkest"
                               : "border-transparent",
                             day.isSelected
-                              ? "font-semibold text-white bg-blue-700 hover:bg-blue-600 dark:bg-blue-800  hover:border-blue-500 dark:border-blue-700 dark:hover:border-blue-600 dark:hover:bg-blue-700 shadow-sm shadow-blue-100 dark:shadow-blue-900"
+                              ? "font-semibold text-white bg-brand dark:bg-brand hover:bg-brand-light dark:hover:bg-brand-light hover:border-brand-light dark:hover:border-brand-light shadow-sm shadow-brand-lightest dark:shadow-brand-darkest"
                               : null,
                             day.isInRange && !(day.isRangeStart || day.isRangeEnd)
-                              ? "font-semibold text-blue-700 dark:text-blue-400 bg-transparent hover:border-blue-500 hover:bg-blue-200 dark:hover:bg-slate-700 hover:text-blue-700 hover:shadow-sm hover:shadow-blue-100 dark:hover:shadow-slate-900"
+                              ? "font-semibold text-brand-dark hover:text-brand-darker dark:text-brand-lighter bg-transparent hover:bg-brand-touch dark:hover:bg-slate-700 hover:border-brand-light dark:hover:border-brand-light hover:shadow-sm hover:shadow-brand-feather dark:hover:shadow-slate-900"
                               : day.isRangeStart
-                                ? "rounded-r-none font-semibold text-white bg-blue-700 dark:bg-blue-800 border-blue-500 dark:border-blue-700 hover:border-blue-700 dark:hover:border-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 hover:rounded-md shadow-sm shadow-blue-100 dark:shadow-blue-900 transition-all duration-75"
+                                ? "rounded-r-none font-semibold text-white bg-brand dark:bg-brand hover:bg-brand-light dark:hover:bg-brand-light hover:border-brand-light dark:hover:border-brand-light shadow-sm shadow-brand-lightest dark:shadow-brand-darkest hover:rounded-md transition-all duration-75"
                                 : day.isRangeEnd
-                                  ? "rounded-l-none font-semibold text-white bg-blue-700 dark:bg-blue-800 border-blue-500 dark:border-blue-700 hover:border-blue-700 dark:hover:border-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 hover:rounded-md shadow-sm shadow-blue-100 dark:shadow-blue-900 transition-all duration-75"
+                                  ? "rounded-l-none font-semibold text-white bg-brand dark:bg-brand hover:bg-brand-light dark:hover:bg-brand-light hover:border-brand-light dark:hover:border-brand-light shadow-sm shadow-brand-lightest dark:shadow-brand-darkest hover:rounded-md transition-all duration-75"
                                   : null,
       
                             "flex items-center justify-center w-10 h-10 rounded-md border"
@@ -220,13 +333,13 @@ function App() {
               <div className="flex space-x-2">
                 <button
                   type="button"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-slate-900 hover:bg-blue-200 dark:hover:bg-slate-700 active:bg-blue-300 active:text-blue-800 dark:active:bg-slate-600"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-brand-dark dark:text-brand-lighter bg-brand-feather dark:bg-slate-900 hover:bg-brand-touch hover:text-brand-darker dark:hover:bg-slate-700 active:bg-brand-lightest active:text-brand-darkest dark:active:bg-slate-600 dark:active:text-brand-lightest"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm dark:shadow-blue-900 text-white bg-blue-700 dark:bg-blue-800 hover:bg-blue-600 dark:hover:bg-blue-700 active:bg-blue-800 dark:active:bg-blue-900"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm shadow-brand-lightest dark:shadow-brand-darkest text-white bg-brand dark:bg-brand hover:bg-brand-light dark:hover:bg-brand-light active:bg-brand-dark dark:active:bg-brand-dark"
                 >
                   Set date
                 </button>
