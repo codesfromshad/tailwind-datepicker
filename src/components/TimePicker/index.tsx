@@ -25,7 +25,6 @@ export function TimePicker() {
   const [timeFormat, setTimeFormat] = useState('12h');
   const [selected, setSelected] = useState(true);
   const [currentInterval, setInterval] = useState();
-  const [segmentedControllerBg, setSegmentedControllerBg] = useState("bg-white dark:bg-slate-800");
 
   const hoursHandler = (e: any) => {
     setHours(e.target.value);
@@ -53,30 +52,19 @@ export function TimePicker() {
 
             <div className={classNames(
               timeFormat === '12h' ? 'translate-x-0' : 'translate-x-full',
-              segmentedControllerBg,
-              `absolute left-0 h-10 inset-y-auto w-1/2 flex rounded-md shadow-sm dark:shadow-slate-900 border border-gray-300 dark:border-slate-200`
+              `absolute left-0 h-10 inset-y-auto w-1/2 flex rounded-md shadow-sm bg-white dark:bg-slate-800 dark:shadow-slate-900 border border-gray-300 dark:border-slate-200 transition-transform ease-in-out duration-200`
             )}
             >  
             </div>
             <div 
               className="relative flex text-sm text-gray-700 dark:text-slate-200 font-semibold items-center justify-center cursor-pointer w-11 h-10 rounded-md"
-              onClick={() => {
-                setTimeFormat('12h');
-                setSegmentedControllerBg("transition-all bg-gray-50 dark:bg-gray-700");
-              }}
-              onMouseEnter={() => timeFormat === '12h' && setSegmentedControllerBg("bg-gray-50 dark:bg-gray-700")}
-              onMouseLeave={() => setSegmentedControllerBg("transition-transform ease-in-out duration-200 bg-white dark:bg-slate-800")}
+              onClick={() => setTimeFormat('12h')}
             >
               12h
             </div>
             <div
               className="relative flex text-sm text-gray-700 dark:text-slate-200 font-semibold items-center justify-center cursor-pointer w-11 h-10 rounded-md"
-              onClick={() => {
-                setTimeFormat('24h');
-                setSegmentedControllerBg("transition-all bg-gray-50 dark:bg-gray-700");
-              }}
-              onMouseEnter={() => timeFormat === '24h' && setSegmentedControllerBg("bg-gray-50 dark:bg-gray-700")}
-              onMouseLeave={() => setSegmentedControllerBg("transition-transform ease-in-out duration-200 bg-white dark:bg-slate-800")}
+              onClick={() => setTimeFormat('24h')}
             >
               24h
             </div>
