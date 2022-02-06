@@ -37,7 +37,7 @@ export function TimePicker() {
   return (  
     <div>
       <div className="flex justify-center items-center space-x-1">
-        <label htmlFor="number" className="flex text-sm font-medium text-gray-700 dark:text-slate-200 pr-1">
+        <label htmlFor="number" className="flex text-sm font-medium text-gray-500 dark:text-slate-300 pr-1">
           <ClockIcon className="w-6 h-6 stroke-current"/>
         </label>
         <div>

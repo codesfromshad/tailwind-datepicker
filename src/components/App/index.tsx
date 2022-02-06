@@ -211,14 +211,14 @@ function App() {
               <span className="relative z-0 inline-flex shadow-sm rounded-md">
                 <button
                   type="button"
-                  className="relative inline-flex items-center px-2 py-2 rounded-l-md bg-white dark:bg-slate-800 font-medium border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600 focus:z-10"
+                  className="relative inline-flex items-center px-2 py-2 rounded-l-md bg-white dark:bg-slate-800 font-medium border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm text-gray-500 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600 focus:z-10"
                 >
                   <span className="sr-only">Previous</span>
                   <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                 </button>
                 <button
                   type="button"
-                  className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md bg-white dark:bg-slate-800 font-medium border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600 focus:z-10"
+                  className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md bg-white dark:bg-slate-800 font-medium border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm text-gray-500 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600 focus:z-10"
                 >
                   <span className="sr-only">Next</span>
                   <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
