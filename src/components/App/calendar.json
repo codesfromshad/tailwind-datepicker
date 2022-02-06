@@ -56,7 +56,7 @@
       "isInteractable": true,
       "isFromPreviousMonth": false,
       "isFromNextMonth": false,
-      "dayData": "",
+      "dayData": "SSS",
       "date": {
          "weekNumber": 35,
          "day": 1,

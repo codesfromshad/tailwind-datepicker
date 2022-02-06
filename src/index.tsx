@@ -12,7 +12,6 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
     <Month />
-    <Another />
   </React.StrictMode>,
   document.getElementById('root')
 );

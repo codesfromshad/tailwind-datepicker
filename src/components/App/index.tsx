@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { ChevronLeftIcon, ChevronRightIcon, XIcon } from '@heroicons/react/outline';
+import { ChevronLeftIcon, ChevronRightIcon, ClockIcon } from '@heroicons/react/outline';
 import Calendar from './calendar.json';
+import { TimePicker } from '@components/TimePicker';
 
 function classNames(...classes: (boolean | null | undefined | string)[]) {
   return classes
@@ -201,7 +202,7 @@ function App() {
   return (
     <div className="">
       <div className="flex items-center justify-center w-full min-h-screen bg-gray-50 dark:bg-slate-900">
-        <div className="select-none flex bg-white dark:bg-gray-800 shadow-lg rounded-xl w-full sm:w-auto justify-center">
+        <div className="select-none flex bg-white dark:bg-gray-800 shadow-lg rounded-xl w-auto justify-center">
           <div className="flex flex-col w-[360px] justify-evenly px-5 pt-5 pb-6 border-b rounded-xl border-gray-100 dark:border-slate-800">
             <div className="flex items-center justify-between">
               <button className="text-lg text-gray-700 dark:text-slate-200 font-semibold rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700 px-3 py-2 active:bg-gray-100 dark:active:bg-slate-600">
@@ -275,7 +276,7 @@ function App() {
       
                         "flex items-center justify-center w-full"
                       )}>
-                        <button
+                        <div
                           className={classNames(
                             day.isInteractable
                               ? "cursor-pointer hover:border-gray-300 dark:hover:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-800 hover:shadow-sm"
@@ -313,7 +314,7 @@ function App() {
                           )}
                         >
                           {day.date.day}
-                        </button>
+                        </div>
                       </div>
                     );
                   })}
@@ -321,7 +322,14 @@ function App() {
       
               </div>
             </div>
-            <div className="flex justify-between pt-5">
+            
+            {/* Clock Input */}
+            
+            <div className="pt-3 pb-2">
+              <TimePicker />
+            </div>
+
+            <div className="flex justify-between pt-3">
               <div className="flex">
                 <button
                   type="button"
