@@ -205,22 +205,38 @@ function App() {
         <div className="select-none flex bg-white dark:bg-gray-800 shadow-lg rounded-xl w-auto justify-center">
           <div className="flex flex-col w-[360px] justify-evenly px-5 pt-5 pb-6 border-b rounded-xl border-gray-100 dark:border-slate-800">
             <div className="flex items-center justify-between">
-              <button className="text-lg text-gray-700 dark:text-slate-200 font-semibold rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700 px-3 py-2 active:bg-gray-100 dark:active:bg-slate-600">
+              <button className="text-lg text-gray-700 dark:text-slate-200 font-semibold rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700 px-3 py-1.5 active:bg-gray-100 dark:active:bg-slate-600">
                 September 2021
               </button>
-              <div className="flex justify-center space-x-2">
+              <span className="relative z-0 inline-flex shadow-sm rounded-md">
                 <button
-                  className="inline-flex items-center p-1.5 border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-slate-200 g-white hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600"
+                  type="button"
+                  className="relative inline-flex items-center px-2 py-2 rounded-l-md bg-white dark:bg-slate-800 font-medium border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600 focus:z-10"
+                >
+                  <span className="sr-only">Previous</span>
+                  <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md bg-white dark:bg-slate-800 font-medium border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600 focus:z-10"
+                >
+                  <span className="sr-only">Next</span>
+                  <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
+              </span>
+              {/* <div className="flex justify-center space-x-2">
+                <button
+                  className="inline-flex items-center p-1.5 border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-slate-200 bg-white hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600"
                   
                 >
                   <ChevronLeftIcon className="w-6 h-6 stroke-current"/>
                 </button>
                 <button
-                  className="inline-flex items-center p-1.5 border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-slate-200 g-white hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600"
+                  className="inline-flex items-center p-1.5 border border-gray-300 dark:border-slate-200 shadow-sm dark:shadow-slate-900 text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-slate-200 bg-white hover:bg-gray-50 dark:hover:bg-slate-700 active:bg-gray-100 dark:active:bg-slate-600"
                 >
                   <ChevronRightIcon className="w-6 h-6 stroke-current"/>
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className="flex justify-around pt-2">
               <div className="grid grid-rows-6 pt-10 pr-4 gap-y-1.5 text-sm text-gray-300 dark:text-slate-600">
