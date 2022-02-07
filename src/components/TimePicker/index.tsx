@@ -57,13 +57,13 @@ export function TimePicker() {
             >  
             </div>
             <div 
-              className="relative flex text-sm text-gray-700 dark:text-slate-200 font-semibold items-center justify-center cursor-pointer w-11 h-10 rounded-md"
+              className="relative flex text-sm text-gray-700 dark:text-slate-200 font-semibold items-center justify-center cursor-pointer w-10 h-10 rounded-md"
               onClick={() => setTimeFormat('12h')}
             >
               12h
             </div>
             <div
-              className="relative flex text-sm text-gray-700 dark:text-slate-200 font-semibold items-center justify-center cursor-pointer w-11 h-10 rounded-md"
+              className="relative flex text-sm text-gray-700 dark:text-slate-200 font-semibold items-center justify-center cursor-pointer w-10 h-10 rounded-md"
               onClick={() => setTimeFormat('24h')}
             >
               24h
