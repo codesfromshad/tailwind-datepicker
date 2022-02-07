@@ -11,6 +11,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": true,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -33,6 +34,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": true,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -55,6 +57,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "SSS",
       "date": {
@@ -77,6 +80,7 @@
       "isRangeEnd": true,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -99,6 +103,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -121,6 +126,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "dayData": "",
@@ -144,6 +150,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -166,6 +173,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -188,6 +196,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -210,6 +219,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -232,6 +242,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -254,6 +265,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -276,6 +288,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -298,6 +311,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -320,6 +334,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -342,6 +357,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -364,6 +380,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -386,6 +403,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -408,6 +426,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -430,6 +449,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -452,6 +472,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -474,6 +495,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -496,6 +518,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -518,6 +541,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -540,6 +564,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -562,6 +587,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -584,6 +610,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -606,6 +633,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -628,6 +656,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -650,6 +679,7 @@
       "isRangeEnd": true,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -672,6 +702,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -694,6 +725,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": false,
       "dayData": "",
       "date": {
@@ -716,6 +748,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -738,6 +771,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -760,6 +794,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -782,6 +817,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -804,6 +840,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -826,6 +863,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -848,6 +886,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -870,6 +909,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -892,6 +932,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {
@@ -914,6 +955,7 @@
       "isRangeEnd": false,
       "isInteractable": true,
       "isFromPreviousMonth": false,
+      "isViewableMonth": true,
       "isFromNextMonth": true,
       "dayData": "",
       "date": {

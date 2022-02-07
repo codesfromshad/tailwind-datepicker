@@ -132,6 +132,7 @@ function App() {
         isRangeEnd: false,
         isInteractable: true,
         isFromPreviousMonth: true,
+        isViewableMonth: true,
         isFromNextMonth: false,
         dayData: "",
         date: {
@@ -294,6 +295,9 @@ function App() {
                       )}>
                         <div
                           className={classNames(
+                            day.isViewableMonth
+                              ? `flex`
+                              : `hidden`,
                             day.isInteractable
                               ? "cursor-pointer hover:border-gray-300 dark:hover:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-800 hover:shadow-sm"
                               : "border-transparent cursor-not-allowed text-gray-300 dark:text-slate-600",
@@ -325,7 +329,7 @@ function App() {
                                   ? "rounded-l-none font-semibold text-white bg-brand dark:bg-brand hover:bg-brand-light dark:hover:bg-brand-light hover:border-brand-light dark:hover:border-brand-light shadow-sm shadow-brand-lightest dark:shadow-brand-darkest hover:rounded-md transition-all duration-75"
                                   : null,
       
-                            "flex items-center justify-center w-10 h-10 rounded-md border"
+                            "items-center justify-center w-10 h-10 rounded-md border"
       
                           )}
                         >
