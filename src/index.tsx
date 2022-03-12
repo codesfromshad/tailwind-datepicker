@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from '@components/App';
 import Month from '@components/Month';
-import Another from '@components/Another';
+import DateRangePicker from '@components/DateRangePicker';
 // import Year from '@components/Year';
 // import Decade from '@components/Decade';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Month />
+    <DateRangePicker />
   </React.StrictMode>,
   document.getElementById('root')
 );

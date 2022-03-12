@@ -202,7 +202,7 @@ function App() {
   
 
   return (
-    <div className={classNames(isDarkMode() ? "dark" : null)}>
+    <div>
       <div className="flex items-center justify-center w-full min-h-screen bg-gray-50 dark:bg-slate-900">
         <div className="select-none flex bg-white dark:bg-gray-800 shadow-lg rounded-xl w-auto justify-center">
           <div className="flex flex-col w-[360px] justify-evenly px-5 pt-5 pb-6 border-b rounded-xl border-gray-100 dark:border-slate-800">
